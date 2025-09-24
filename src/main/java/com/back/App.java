@@ -1,7 +1,14 @@
 package com.back;
 
-public class App {
-    public void run() {
+import java.util.Scanner;
 
+public class App {
+    private Scanner sc;
+    public App(Scanner sc){
+        this.sc = sc;
+
+    }
+    public void run() {
+        System.out.println("== 명언 앱 ==");
     }
 }
