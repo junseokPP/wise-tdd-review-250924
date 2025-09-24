@@ -25,6 +25,6 @@ public class AppTest {
                 """);
         assertThat(out).contains("명령) ");
         assertThat(out).contains("명언 : ");
-        assertThat(out).contains("작가 :  ");
+        assertThat(out).contains("작가 : ");
     }
 }
