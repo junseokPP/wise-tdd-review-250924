@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,16 +6,12 @@ import java.util.Scanner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestUtilTest {
-        @BeforeEach
-        void beforeEach() {
-            AppTest.clear();
-        }
 
         @Test
         @DisplayName("TestUtil.genScanner()")
         void t1() {
             Scanner sc = TestUtil.genScanner("""
-                    등록,
+                    등록
                     너 자신을 알라
                     소크라테스
                     """);
