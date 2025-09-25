@@ -26,4 +26,15 @@ public class AppTest {
         assertThat(out).contains("명언 : ");
         assertThat(out).contains("작가 : ");
     }
+    @Test
+    @DisplayName("등록시 명언 번호 노출")
+    void t3(){
+        String out = AppTestRunner.run("""
+                등록
+                너 자신을 알라
+                소크라테스
+                """);
+        assertThat(out).contains("1번 명언이 등록되었습니다.");
+    }
+
 }
