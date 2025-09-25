@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class App {
 
     private Scanner sc;
+
+    private WiseSayingController wiseSayingController;
+    private SystemController systemController = new SystemController();
     public App(Scanner sc) {
         this.sc = sc;
+        wiseSayingController = new WiseSayingController(sc);
     }
-
-    WiseSayingController wiseSayingController = new WiseSayingController(sc);
-    SystemController systemController = new SystemController();
     public void run() {
         System.out.println("== 명언 앱 ==");
 
