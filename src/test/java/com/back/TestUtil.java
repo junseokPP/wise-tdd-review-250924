@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class TestUtil {
 
-    private static PrintStream ORIGINAL_OUT = System.out;
-    private static PrintStream CURRENT_OUT = System.out;
+    private static PrintStream ORIGINAL_OUT = System.out;//모니터
+    private static PrintStream CURRENT_OUT = System.out;//모니터
 
     public static Scanner genScanner(String input) {
         return new Scanner(input);
