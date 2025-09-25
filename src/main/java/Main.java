@@ -1,9 +1,10 @@
 import com.back.App;
-
-import java.util.Scanner;
+import com.back.AppContext;
 
 public class Main {
     public static void main(String[] args) {
-        new App(new Scanner(System.in)).run();
+        AppContext.init();
+        new App().run();
+
     }
 }

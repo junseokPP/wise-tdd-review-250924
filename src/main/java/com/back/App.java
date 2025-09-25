@@ -10,10 +10,11 @@ public class App {
     private Scanner sc;
 
     private WiseSayingController wiseSayingController;
-    private SystemController systemController = new SystemController();
-    public App(Scanner sc) {
-        this.sc = sc;
-        wiseSayingController = new WiseSayingController(sc);
+    private SystemController systemController;
+    public App() {
+        this.sc = AppContext.sc;
+        wiseSayingController = AppContext.wiseSayingController;
+        systemController = AppContext.systemController;
     }
     public void run() {
         System.out.println("== 명언 앱 ==");
