@@ -32,4 +32,11 @@ public class WiseSayingService {
         return wiseSayingRepository.findByIdOrNull(id);
 
     }
+
+    public void modify(WiseSaying wiseSaying, String newSaying, String newAuthor) {
+        wiseSaying.setSaying(newSaying);
+        wiseSaying.setAuthor(newAuthor);
+
+        wiseSayingRepository.save(wiseSaying);
+    }
 }

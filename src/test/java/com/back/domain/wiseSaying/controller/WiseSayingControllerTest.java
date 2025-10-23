@@ -124,10 +124,11 @@ public class WiseSayingControllerTest {
                 수정?id=1
                 과거에 집착하지 마라.
                 작자미상
+                목록
                 """);
 
         assertThat(out)
                 .doesNotContain("1 / 작자미상 / 현재를 사랑하라.")
-                .contains("2 / 작자미상 / 과거에 집착하지 마라.");
+                .contains("1 / 작자미상 / 과거에 집착하지 마라.");
     }
 }
