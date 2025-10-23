@@ -19,25 +19,25 @@ public class WiseSayingRepository {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findByContentContainingDesc(String kw) {
+    public List<WiseSaying> findByContentContainingDesc(String kw,int pageNo,int pageSize) {
         return wiseSayings.reversed().stream()
                 .filter(w->w.getSaying().contains(kw))
-                .limit(5)
+                .limit(pageSize)
                 .toList();
     }
 
-    public List<WiseSaying> findByAuthorContainingDesc(String kw) {
+    public List<WiseSaying> findByAuthorContainingDesc(String kw,int pageNo,int pageSize) {
 
         return wiseSayings.reversed().stream()
                 .filter(w->w.getAuthor().contains(kw))
-                .limit(5)
+                .limit(pageSize)
                 .toList();
     }
 
-    public List<WiseSaying> findByAuthorContainingDescOrContentContainingDesc(String kw) {
+    public List<WiseSaying> findByAuthorContainingDescOrContentContainingDesc(String kw,int pageNo,int pageSize) {
         return wiseSayings.reversed().stream()
                 .filter(w->w.getAuthor().contains(kw) || w.getSaying().contains(kw))
-                .limit(5)
+                .limit(pageSize)
                 .toList();
 
     }

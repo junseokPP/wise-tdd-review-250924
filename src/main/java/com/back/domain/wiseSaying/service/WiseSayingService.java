@@ -20,13 +20,13 @@ public class WiseSayingService {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findListDesc(String kw, String kwType) {
+    public List<WiseSaying> findListDesc(String kw, String kwType,int pageNo,int pageSize) {
         if(kwType.equals("content")){
-            return wiseSayingRepository.findByContentContainingDesc(kw);
+            return wiseSayingRepository.findByContentContainingDesc(kw,pageNo,pageSize);
         }else if(kwType.equals("author")) {
-            return wiseSayingRepository.findByAuthorContainingDesc(kw);
+            return wiseSayingRepository.findByAuthorContainingDesc(kw,pageNo,pageSize);
         }else{
-            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw);
+            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw,pageNo,pageSize);
         }
     }
 
