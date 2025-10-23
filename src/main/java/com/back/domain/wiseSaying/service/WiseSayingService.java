@@ -26,7 +26,7 @@ public class WiseSayingService {
         }else if(kwType.equals("author")) {
             return wiseSayingRepository.findByAuthorContainingDesc(kw,pageNo,pageSize);
         }else{
-            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw,pageNo,pageSize);
+            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw,pageNo,pageSize).getContent();
         }
     }
 
