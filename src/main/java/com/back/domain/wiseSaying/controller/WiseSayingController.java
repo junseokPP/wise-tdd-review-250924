@@ -36,8 +36,11 @@ public class WiseSayingController {
         String kw = rq.getParam("keyword", "");
         String kwType = rq.getParam("keywordType", "");
 
-        int pageSize = 5;
-        int pageNo = 1;
+        int pageSize = rq.getParamAsInt("pageSize", 5);
+        int pageNo = rq.getParamAsInt("page", 1);
+
+        System.out.println(pageNo);
+        System.out.println(pageSize);
 
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
