@@ -17,9 +17,9 @@ public class TestUtil {
     public static ByteArrayOutputStream setOutToByteArray() {
 
         ORIGINAL_OUT = System.out;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); //ByteArrayOutputStream이안에 출력저장하는 공간 (메모리버퍼)
+        PrintStream printStream = new PrintStream(outputStream); //빨대 역할
+        System.setOut(printStream); //내가 지정한곳으로 보내.
         CURRENT_OUT = printStream;
 
         return outputStream;

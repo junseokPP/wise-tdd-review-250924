@@ -46,6 +46,12 @@ public class WiseSayingController {
     public void actionDelete(Rq rq) {
         int id = rq.getParamAsInt("id", 1);
         boolean rst = wiseSayingService.delete(id);
+
+        if(!rst){
+            System.out.println("%d번 명언이 존재하지 않습니다.".formatted(id));
+            return;
+        }
+
         System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
     }
 }
