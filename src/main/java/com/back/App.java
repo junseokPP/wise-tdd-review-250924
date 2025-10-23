@@ -11,8 +11,10 @@ public class App {
 
     private WiseSayingController wiseSayingController;
     private SystemController systemController;
+
     public App() {
         this.sc = AppContext.sc;
+
         wiseSayingController = AppContext.wiseSayingController;
         systemController = AppContext.systemController;
     }
@@ -26,16 +28,13 @@ public class App {
             switch (cmd) {
                 case "등록" -> wiseSayingController.actionAdd();
                 case "목록" -> wiseSayingController.actionList();
+                case "삭제?id=1" -> wiseSayingController.actionDelete(cmd);
                 case "종료" ->{
                     systemController.actionExit();
                     return;
                 }
             }
-
         }
-
-
-
     }
 
 }

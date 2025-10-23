@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
+
     Scanner sc;
 
     private WiseSayingService wiseSayingService;
@@ -38,6 +39,10 @@ public class WiseSayingController {
         wiseSayings.reversed().stream()
                 .forEach(wiseSaying -> System.out.println("%d / %s / %s"
                         .formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getSaying())));
+
+    }
+
+    public void actionDelete(String cmd) {
 
     }
 }
