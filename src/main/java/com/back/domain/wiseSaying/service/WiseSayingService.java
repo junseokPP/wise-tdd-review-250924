@@ -20,8 +20,14 @@ public class WiseSayingService {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findListDesc(String kwType) {
-        return wiseSayingRepository.findListDesc(kwType);
+    public List<WiseSaying> findListDesc(String kw, String kwType) {
+        if(kwType.equals("content")){
+            return wiseSayingRepository.findByContentContainingDesc(kw);
+        }else if(kwType.equals("author")) {
+            return wiseSayingRepository.findByAuthorContainingDesc(kw);
+        }else{
+            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw);
+        }
     }
 
     public boolean delete(int id) {

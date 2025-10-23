@@ -19,9 +19,17 @@ public class WiseSayingRepository {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findListDesc(String kwType) {
+    public List<WiseSaying> findByContentContainingDesc(String kw) {
         return wiseSayings.stream()
-                .filter(w->w.getSaying().contains(kwType))
+                .filter(w->w.getSaying().contains(kw))
+                .toList()
+                .reversed();
+    }
+
+    public List<WiseSaying> findByAuthorContainingDesc(String kw) {
+
+        return wiseSayings.stream()
+                .filter(w->w.getAuthor().contains(kw))
                 .toList()
                 .reversed();
     }
@@ -39,5 +47,13 @@ public class WiseSayingRepository {
         return wiseSayings.stream()
                 .filter(wiseSaying -> wiseSaying.getId() == id)
                 .findFirst().orElse(null);
+    }
+
+
+    public List<WiseSaying> findByAuthorContainingDescOrContentContainingDesc(String kw) {
+        return wiseSayings.stream()
+                .filter(w->w.getAuthor().contains(kw) || w.getSaying().contains(kw))
+                .toList()
+                .reversed();
     }
 }
