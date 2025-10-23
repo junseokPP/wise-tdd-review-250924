@@ -19,8 +19,11 @@ public class WiseSayingRepository {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findListDesc() {
-        return wiseSayings.reversed();
+    public List<WiseSaying> findListDesc(String kwType) {
+        return wiseSayings.stream()
+                .filter(w->w.getSaying().contains(kwType))
+                .toList()
+                .reversed();
     }
 
     public boolean delete(int id) {
