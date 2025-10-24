@@ -9,6 +9,18 @@ public class Util {
     // 이너 클래스
     public static class file {
 
+        public static boolean rmdir(String dirPath) {
+            return delete(dirPath);
+        }
+
+        public static void  mkdir(String dirPath) {
+            try {
+                Files.createDirectories(getPath(dirPath));
+            } catch (IOException e) {
+                throw new RuntimeException("디렉토리 생성 실패: " + dirPath, e);
+            }
+        }
+
         private static Path getPath(String filePath) {
             return Paths.get(filePath);
         }
