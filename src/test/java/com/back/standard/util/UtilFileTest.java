@@ -21,6 +21,7 @@ public class UtilFileTest {
         boolean rst = Util.file.exists(filePath);
         assertThat(rst).isTrue();
 
+        Util.file.delete(filePath);
     }
 
     @Test
