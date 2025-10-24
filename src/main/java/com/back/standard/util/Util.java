@@ -50,6 +50,14 @@ public class Util {
             return Files.exists(getPath(filePath));
         }
 
+        public static String get(String filePath, String defaultValue) {
+            try {
+                return Files.readString(getPath(filePath));
+            } catch (IOException e) {
+                return defaultValue;
+            }
+        }
+
 
         private static class FileDeleteVisitor extends SimpleFileVisitor<Path> {
             @Override
