@@ -15,4 +15,8 @@ public class PageDto {
     private int totalItems;
     private List<WiseSaying> content;
 
+    public int getTotalPageCnt() {
+        if( totalItems == 0) return 0;
+        return (int) Math.ceil((double) totalItems / (double) pageSize);
+    }
 }

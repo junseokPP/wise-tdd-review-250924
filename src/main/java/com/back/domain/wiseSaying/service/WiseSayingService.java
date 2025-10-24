@@ -1,10 +1,9 @@
 package com.back.domain.wiseSaying.service;
 
 import com.back.AppContext;
+import com.back.PageDto;
 import com.back.domain.wiseSaying.entity.WiseSaying;
 import com.back.domain.wiseSaying.repository.WiseSayingRepository;
-
-import java.util.List;
 
 public class WiseSayingService {
 
@@ -20,13 +19,13 @@ public class WiseSayingService {
         return wiseSaying;
     }
 
-    public List<WiseSaying> findListDesc(String kw, String kwType,int pageNo,int pageSize) {
+    public PageDto findListDesc(String kw, String kwType, int pageNo, int pageSize) {
         if(kwType.equals("content")){
             return wiseSayingRepository.findByContentContainingDesc(kw,pageNo,pageSize);
         }else if(kwType.equals("author")) {
             return wiseSayingRepository.findByAuthorContainingDesc(kw,pageNo,pageSize);
         }else{
-            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw,pageNo,pageSize).getContent();
+            return wiseSayingRepository.findByAuthorContainingDescOrContentContainingDesc(kw,pageNo,pageSize);
         }
     }
 

@@ -1,12 +1,14 @@
 package com.back.domain.wiseSaying.controller;
 
 import com.back.AppContext;
+import com.back.PageDto;
 import com.back.Rq;
 import com.back.domain.wiseSaying.entity.WiseSaying;
 import com.back.domain.wiseSaying.service.WiseSayingService;
 
-import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class WiseSayingController {
 
@@ -45,11 +47,24 @@ public class WiseSayingController {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        List<WiseSaying> wiseSayings = wiseSayingService.findListDesc(kw,kwType,pageSize,pageNo);
+        PageDto pageDto = wiseSayingService.findListDesc(kw,kwType,pageSize,pageNo);
 
-        wiseSayings.stream()
+        pageDto.getContent()
+                .stream()
                 .forEach(wiseSaying -> System.out.println("%d / %s / %s"
                         .formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getSaying())));
+
+        System.out.println("----------------------");
+
+
+        int totalPageCnt = pageDto.getTotalPageCnt();
+        int currentPageNo = pageDto.getPageNo();
+        String pageMenu = IntStream.rangeClosed(1,totalPageCnt)
+                .mapToObj(i -> i == currentPageNo ? "[%d]".formatted(i) : String.valueOf(i))
+                .collect(Collectors.joining(" / "));
+
+        System.out.println("페이지 : " + pageMenu);
+
 
     }
 
