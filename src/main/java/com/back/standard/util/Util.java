@@ -3,23 +3,12 @@ package com.back.standard.util;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Map;
 
 public class Util {
 
     // 이너 클래스
     public static class file {
-
-        public static boolean rmdir(String dirPath) {
-            return delete(dirPath);
-        }
-
-        public static void  mkdir(String dirPath) {
-            try {
-                Files.createDirectories(getPath(dirPath));
-            } catch (IOException e) {
-                throw new RuntimeException("디렉토리 생성 실패: " + dirPath, e);
-            }
-        }
 
         private static Path getPath(String filePath) {
             return Paths.get(filePath);
@@ -70,6 +59,17 @@ public class Util {
             }
         }
 
+        public static boolean rmdir(String dirPath) {
+            return delete(dirPath);
+        }
+
+        public static void  mkdir(String dirPath) {
+            try {
+                Files.createDirectories(getPath(dirPath));
+            } catch (IOException e) {
+                throw new RuntimeException("디렉토리 생성 실패: " + dirPath, e);
+            }
+        }
 
         private static class FileDeleteVisitor extends SimpleFileVisitor<Path> {
             @Override
@@ -98,6 +98,32 @@ public class Util {
 
     public static class json {
 
+        public static String toString(Map<String, Object> map) {
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("{");
+            sb.append("\n");
+
+            map.forEach((key, value) -> {
+                sb.append("    ");
+                key = "\"" + key + "\"";
+
+                if (value instanceof String) {
+                    value = "\"" + value + "\"";
+                }
+
+                sb.append("%s: %s,\n".formatted(key, value));
+            });
+
+            if (!map.isEmpty()) {
+                sb.delete(sb.length() - 2, sb.length());
+            }
+
+            sb.append("\n");
+            sb.append("}");
+
+            return sb.toString();
+        }
     }
 
 }
