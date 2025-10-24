@@ -51,6 +51,10 @@ public class Util {
         public static boolean exists(String filePath) {
             return Files.exists(getPath(filePath));
         }
+
+        public static void delete(String filePath) {
+
+        }
     }
 
     public static class json {
