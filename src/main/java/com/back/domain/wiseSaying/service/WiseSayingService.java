@@ -5,6 +5,8 @@ import com.back.PageDto;
 import com.back.domain.wiseSaying.entity.WiseSaying;
 import com.back.domain.wiseSaying.repository.WiseSayingRepository;
 
+import java.util.Optional;
+
 public class WiseSayingService {
 
     private WiseSayingRepository wiseSayingRepository;
@@ -33,7 +35,7 @@ public class WiseSayingService {
         return wiseSayingRepository.delete(id);
     }
 
-    public WiseSaying findByIdOrNull(int id) {
+    public Optional<WiseSaying> findByIdOrNull(int id) {
         return wiseSayingRepository.findByIdOrNull(id);
 
     }

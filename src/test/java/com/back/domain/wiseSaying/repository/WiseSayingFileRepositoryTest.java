@@ -34,7 +34,7 @@ public class WiseSayingFileRepositoryTest {
 
         wiseSayingFileRepository.save(wiseSaying);
 
-        WiseSaying foundedWiseSaying = wiseSayingFileRepository.findByIdOrNull(1);
+        WiseSaying foundedWiseSaying = wiseSayingFileRepository.findByIdOrNull(1).get();
 
         assertThat(foundedWiseSaying).isEqualTo(wiseSaying);
 
@@ -50,8 +50,8 @@ public class WiseSayingFileRepositoryTest {
         wiseSayingFileRepository.save(wiseSaying1);
         wiseSayingFileRepository.save(wiseSaying2);
 
-        WiseSaying foundedWiseSaying1 = wiseSayingFileRepository.findByIdOrNull(1);
-        WiseSaying foundedWiseSaying2 = wiseSayingFileRepository.findByIdOrNull(2);
+        WiseSaying foundedWiseSaying1 = wiseSayingFileRepository.findByIdOrNull(1).get();
+        WiseSaying foundedWiseSaying2 = wiseSayingFileRepository.findByIdOrNull(2).get();
 
         assertThat(foundedWiseSaying1).isEqualTo(wiseSaying1);
         assertThat(foundedWiseSaying2).isEqualTo(wiseSaying2);

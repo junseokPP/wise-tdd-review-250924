@@ -5,6 +5,7 @@ import com.back.domain.wiseSaying.entity.WiseSaying;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class WiseSayingRepository {
 
@@ -75,11 +76,11 @@ public class WiseSayingRepository {
         return false;
     }
 
-    public WiseSaying findByIdOrNull(int id) {
+    public Optional<WiseSaying> findByIdOrNull(int id) {
 
         return wiseSayings.stream()
                 .filter(wiseSaying -> wiseSaying.getId() == id)
-                .findFirst().orElse(null);
+                .findFirst();
     }
 
 
