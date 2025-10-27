@@ -86,7 +86,7 @@ public class WiseSayingController {
 
         Optional<WiseSaying> oPwiseSaying = wiseSayingService.findByIdOrNull(id);
 
-        if(oPwiseSaying == null){
+        if(oPwiseSaying.isEmpty()){
             System.out.println("%d번 명언이 존재하지 않습니다.".formatted(id));
             return;
         }
