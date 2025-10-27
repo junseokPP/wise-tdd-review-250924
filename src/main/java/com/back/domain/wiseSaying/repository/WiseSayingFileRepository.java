@@ -58,4 +58,10 @@ public class WiseSayingFileRepository {
         return Optional.of(wiseSaying);
 
     }
+
+    public void delete(WiseSaying wiseSaying1) {
+
+        Util.file.delete(getFilePath(wiseSaying1.getId()));
+
+    }
 }

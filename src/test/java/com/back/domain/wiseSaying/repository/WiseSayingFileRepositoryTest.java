@@ -58,4 +58,20 @@ public class WiseSayingFileRepositoryTest {
 
     }
 
+    @Test
+    @DisplayName("명언 1개 파일 삭제 테스트")
+    void t3(){
+
+        WiseSaying wiseSaying1 = new WiseSaying("적에게 내 죽음을 알리지마라.","이순신");
+
+        wiseSayingFileRepository.save(wiseSaying1);
+
+        wiseSayingFileRepository.delete(wiseSaying1);
+
+        WiseSaying foundedWiseSaying1 = wiseSayingFileRepository.findByIdOrNull(1).orElse(null);
+
+        assertThat(foundedWiseSaying1).isNull();
+
+    }
+
 }
